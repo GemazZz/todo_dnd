@@ -1,18 +1,12 @@
-"use client";
-
-import { useEffect, useState } from "react";
+import { FC } from "react";
 import Card from "./Card";
 import { TodoProps } from "../props";
 
-const CardContainer: React.FC = () => {
-  const [todos, setTodos] = useState<TodoProps[]>([]);
+interface CardContainerProps {
+  todos: TodoProps[];
+}
 
-  useEffect(() => {
-    const todos = localStorage.getItem("todos");
-    const parsedTodos = todos ? JSON.parse(todos) : [];
-    setTodos(parsedTodos);
-  }, []);
-
+const CardContainer: FC<CardContainerProps> = ({ todos }) => {
   return (
     <div className="relative min-h-[100vh] flex items-center flex-col p-[20px]">
       {todos.map((todo, index) => (

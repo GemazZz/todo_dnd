@@ -7,3 +7,8 @@ interface ContentProps {
   todo: string;
   checked: boolean;
 }
+
+export interface AddBtnProps {
+  todos: TodoProps[];
+  setTodos: React.Dispatch<React.SetStateAction<TodoProps[]>>;
+}

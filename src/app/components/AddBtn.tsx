@@ -1,19 +1,16 @@
-"use client";
 import { useState } from "react";
 import { blue, green, pink, yellow } from "../helpers";
+import { AddBtnProps } from "../props";
 
-function AddBtn() {
+function AddBtn({ todos, setTodos }: AddBtnProps) {
   const [popUp, setPopUp] = useState<boolean>(false);
+
   const addLocalStorage = (color: string) => {
-    const todos: string | null = localStorage.getItem("todos");
-    if (todos) {
-      const parsedTodos: object[] = JSON.parse(todos);
-      const newTodos = [...parsedTodos, { color }];
-      localStorage.setItem("todos", JSON.stringify(newTodos));
-    } else {
-      const newTodos = [{ color }];
-      localStorage.setItem("todos", JSON.stringify(newTodos));
-    }
+    const newTodo = { color, id: new Date().getTime(), content: [] };
+    const newTodos = [...todos, newTodo];
+
+    setTodos(newTodos);
+    localStorage.setItem("todos", JSON.stringify(newTodos));
   };
 
   return (
