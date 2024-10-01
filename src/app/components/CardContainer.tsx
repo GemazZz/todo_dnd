@@ -2,10 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Card from "./Card";
-
-interface TodoProps {
-  color: string;
-}
+import { TodoProps } from "../props";
 
 const CardContainer: React.FC = () => {
   const [todos, setTodos] = useState<TodoProps[]>([]);

@@ -1,5 +1,4 @@
 import AddBtn from "./components/AddBtn";
-import Card from "./components/Card";
 import CardContainer from "./components/CardContainer";
 import Footer from "./components/Footer";
 import Header from "./components/Header";

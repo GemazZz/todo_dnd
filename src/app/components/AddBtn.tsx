@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { blue, green, pink, yellow } from "./helpers";
+import { blue, green, pink, yellow } from "../helpers";
 
 function AddBtn() {
   const [popUp, setPopUp] = useState<boolean>(false);
