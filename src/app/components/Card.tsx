@@ -9,7 +9,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ color }) => {
   return (
-    <div className={`w-[320px] min-h-[180px] bg-[${color}] my-[10px] rounded-[5px]`}>
+    <div className={`w-[320px] min-h-[180px] my-[10px] rounded-[5px]`} style={{ background: color }}>
       <div className="w-[100%] relative my-[10px] flex justify-end px-[20px] py-[10px] gap-[10px]">
         <button className="w-[40px] h-[40px] bg-white rounded-full flex justify-center items-center">
           <Image src={X} alt="x" width={20} />
@@ -24,8 +24,10 @@ const Card: React.FC<CardProps> = ({ color }) => {
       <div>
         <div className="relative flex justify-between items-center px-[10px] m-[10px]">
           <input type="checkbox" />
-          <p>Labeasdl</p>
-          <button>X</button>
+          <p>Label</p>
+          <button>
+            <Image src={X} alt={"X"} width={13} />
+          </button>
         </div>
       </div>
     </div>
