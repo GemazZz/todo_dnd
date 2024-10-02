@@ -14,3 +14,8 @@ export interface AddBtnProps {
   todos: TodoProps[];
   setTodos: React.Dispatch<React.SetStateAction<TodoProps[]>>;
 }
+
+export interface CardProps {
+  todo: TodoProps;
+  setTodos: React.Dispatch<React.SetStateAction<TodoProps[]>>;
+}

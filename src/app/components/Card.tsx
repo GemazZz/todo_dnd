@@ -3,12 +3,7 @@ import ToDoInput from "./Common/ToDoInput";
 import download from "../icons/download-solid.svg";
 import X from "../icons/x-solid.svg";
 import Image from "next/image";
-import { TodoProps } from "../props";
-
-interface CardProps {
-  todo: TodoProps;
-  setTodos: React.Dispatch<React.SetStateAction<TodoProps[]>>;
-}
+import { CardProps } from "../props";
 
 const Card: React.FC<CardProps> = ({ todo, setTodos }) => {
   const toggleTodo = (contentId: number) => {
