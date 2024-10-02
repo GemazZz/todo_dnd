@@ -49,13 +49,36 @@ const Card: React.FC<CardProps> = ({ todo, setTodos }) => {
     });
   };
 
+  const downloadTextFile = (content: string, filename: string) => {
+    const blob = new Blob([content], { type: "text/plain" });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    window.URL.revokeObjectURL(url);
+  };
+
+  const downloadText: string[] = [];
+  todo.content.map((c) => {
+    downloadText.push(c.todo);
+  });
+
   return (
     <div className="w-[320px] min-h-[180px] my-[10px] rounded-[5px]" style={{ background: todo.color }}>
       <div className="w-[100%] relative my-[10px] flex justify-end px-[20px] py-[10px] gap-[10px]">
         <button className="w-[40px] h-[40px] bg-white rounded-full flex justify-center items-center" onClick={deleteContainer}>
           <Image src={X} alt="x" width={20} />
         </button>
-        <button className="w-[40px] h-[40px] bg-blue-600 rounded-full flex justify-center items-center">
+        <button
+          className="w-[40px] h-[40px] bg-blue-600 rounded-full flex justify-center items-center"
+          onClick={() => {
+            console.log(todo.content);
+            downloadTextFile(downloadText.toString(), "Todos.txt");
+          }}
+        >
           <Image src={download} alt="download" width={20} />
         </button>
       </div>
