@@ -57,7 +57,7 @@ const Card: React.FC<CardProps> = ({ todo, setTodos }) => {
   };
 
   const downloadText: string[] = [];
-  todo.content.map((c) => {
+  todo.content.forEach((c) => {
     downloadText.push(c.todo);
   });
 
@@ -71,7 +71,7 @@ const Card: React.FC<CardProps> = ({ todo, setTodos }) => {
           className="w-[40px] h-[40px] bg-blue-600 rounded-full flex justify-center items-center"
           onClick={() => {
             console.log(todo.content);
-            downloadTextFile(downloadText.toString(), "Todos.txt");
+            downloadTextFile(downloadText.join("\n"), "Todos.txt");
           }}
         >
           <Image src={download} alt="download" width={20} />

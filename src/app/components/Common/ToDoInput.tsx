@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { TodoProps } from "@/app/props";
 
@@ -40,7 +40,6 @@ const ToDoInput: React.FC<ToDoInputProps> = ({ id, setTodos }) => {
       <button className="w-[80px] h-[40px] bg-green-600 rounded-[7px] text-white" onClick={notify}>
         Add
       </button>
-      <ToastContainer position="bottom-left" />
     </>
   );
 };

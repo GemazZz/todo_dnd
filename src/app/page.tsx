@@ -6,6 +6,7 @@ import CardContainer from "./components/CardContainer";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { TodoProps } from "./props";
+import { ToastContainer } from "react-toastify";
 
 export default function Home() {
   const [todos, setTodos] = useState<TodoProps[]>([]);
@@ -21,6 +22,7 @@ export default function Home() {
       <AddBtn todos={todos} setTodos={setTodos} />
       <CardContainer todos={todos} setTodos={setTodos} />
       <Footer />
+      <ToastContainer position="bottom-left" />
     </div>
   );
 }
