@@ -24,7 +24,7 @@ const Card: React.FC<CardProps> = ({ color }) => {
       <div>
         <div className="relative flex justify-between items-center px-[10px] m-[10px]">
           <input type="checkbox" />
-          <p>Label</p>
+          <p>Labeasdl</p>
           <button>X</button>
         </div>
       </div>
