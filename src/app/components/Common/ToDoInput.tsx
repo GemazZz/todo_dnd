@@ -1,19 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { TodoProps } from "@/app/props";
 
-function ToDoInput() {
+interface ToDoInputProps {
+  id: number;
+  setTodos: React.Dispatch<React.SetStateAction<TodoProps[]>>;
+}
+
+const ToDoInput: React.FC<ToDoInputProps> = ({ id, setTodos }) => {
   const [todo, setTodo] = useState<string>("");
+
   const notify = () => {
     if (todo === "") {
       toast.error("Type something !!!");
     } else {
-      toast.success("Note succesfully added!!!");
+      const newContent = { id: new Date().getTime(), todo, checked: false };
+      setTodos((prevTodos) => {
+        const updatedTodos = prevTodos.map((t) => (t.id === id ? { ...t, content: [...t.content, newContent] } : t));
+        localStorage.setItem("todos", JSON.stringify(updatedTodos));
+        return updatedTodos;
+      });
+      toast.success("Note successfully added!!!");
       setTodo("");
     }
   };
+
   return (
     <>
       <input
@@ -29,6 +43,6 @@ function ToDoInput() {
       <ToastContainer position="bottom-left" />
     </>
   );
-}
+};
 
 export default ToDoInput;

@@ -3,7 +3,9 @@ export interface TodoProps {
   color: string;
   content: ContentProps[];
 }
-interface ContentProps {
+
+export interface ContentProps {
+  id: number;
   todo: string;
   checked: boolean;
 }

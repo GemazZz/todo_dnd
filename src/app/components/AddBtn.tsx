@@ -2,7 +2,7 @@ import { useState } from "react";
 import { blue, green, pink, yellow } from "../helpers";
 import { AddBtnProps } from "../props";
 
-function AddBtn({ todos, setTodos }: AddBtnProps) {
+const AddBtn: React.FC<AddBtnProps> = ({ todos, setTodos }) => {
   const [popUp, setPopUp] = useState<boolean>(false);
 
   const addLocalStorage = (color: string) => {
@@ -35,6 +35,6 @@ function AddBtn({ todos, setTodos }: AddBtnProps) {
       </button>
     </div>
   );
-}
+};
 
 export default AddBtn;
